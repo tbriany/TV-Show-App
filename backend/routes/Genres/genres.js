@@ -1,20 +1,26 @@
 var express = require('express');
 var router = express.Router();
+var genreQueries = require('../../queries/genreQueries')
+
 
 /* on genres page. */
-router.get('/', function(req, res, next) {
-  res.send('Genres route')
+router.get('/', function (req, res, next) {
+    res.send('Genres route')
 });
 
 
 /* GET all genres */
-// /genres/all
 router.get('/all', async (req, res, next) => {
+
     try {
+
+        let allGenres = await genreQueries.getAllGenres()
+
         res.status(200).json({
             message: "Success retrieved all genres from genre table",
-
+            payload: allGenres
         })
+
     } catch (err) {
         console.log(err)
         res.status(404).json({
@@ -25,14 +31,18 @@ router.get('/all', async (req, res, next) => {
 
 
 /* POST: add a new genre */
-// /genres/add
-// body data: genre_name 
 router.post('/add', async (req, res, next) => {
+
+    let newGenre = req.body.genre_name
+
     try {
+        let genreName = await genreQueries.addNewGenre(newGenre)
+        
         res.status(200).json({
             message: "Success added new genre",
-
+            payload: genreName
         })
+
     } catch (err) {
         console.log(err)
         res.status(404).json({
