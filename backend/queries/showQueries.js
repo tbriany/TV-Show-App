@@ -43,7 +43,14 @@ const getShowsByGenre = async (genre_id) => {
 
 /* GET all shows for specific user_id */
 const getShowsByUser = async (user_id) => {
-    const shows = await db.any("SELECT * FROM shows WHERE user_id = $1", [user_id])
+    const selectShowsQuery = `
+    SELECT * FROM shows 
+    JOIN genres 
+    ON genres.id = genre_id
+    JOIN users
+    ON users.id = user_id
+    WHERE user_id = $1`
+    const shows = await db.any(selectShowsQuery, [user_id])
     return shows;
 }
 
