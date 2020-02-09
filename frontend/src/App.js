@@ -5,6 +5,14 @@ import Home from './Components/Home';
 import About from './Components/About';
 import Users from './Components/Users';
 import Shows from './Components/Shows';
+import UserProfile from './Components/UserProfile'
+import ShowProfile from './Components/ShowProfile'
+import AddShow from './Components/NewShowForm'
+
+const styles = {
+  // width: "40%",
+  border: "black",
+}
 
 class App extends Component {
   constructor() {
@@ -32,24 +40,22 @@ class App extends Component {
           <Link to="/about">About</Link>
         </nav>
 
-        <div className="body">
+        <div className="body" style={styles}>
           <Switch>
 
-            <Route path="/shows" >
-              <Shows />
-            </Route>
+            <Route path="/shows/:id/user/:userId" component={ShowProfile}/>
 
-            <Route path="/users" >
-              <Users />
-            </Route>
+            <Route path="/users/:id/addShow" component={AddShow}/>
 
-            <Route path="/about" >
-              <About />
-            </Route>
+            <Route path="/users/:id" component={UserProfile}/>
 
-            <Route exact path="/">
-              <Home />
-            </Route>
+            <Route exact path="/users" component={Users}/>
+
+            <Route path="/shows" component={Shows}/>
+
+            <Route path="/about" component={About}/>
+
+            <Route exact path="/" component={Home}/>
 
           </Switch>
         </div>
