@@ -16,7 +16,7 @@ router.get('/show/:show_id', async (req, res, next) => {
 
     try {
 
-        let comments = commentQueries.getAllCommentsByShow(show_id)
+        let comments = await commentQueries.getAllCommentsByShow(show_id)
 
         res.status(200).json({
             message: "Success retrieved all comments by show id",
@@ -33,7 +33,7 @@ router.get('/show/:show_id', async (req, res, next) => {
 
 
 /* POST add a new comment */
-router.get('/add', async (req, res, next) => {
+router.post('/add', async (req, res, next) => {
 
     let commentInfo = {
         comment_body: req.body.comment,
@@ -43,8 +43,8 @@ router.get('/add', async (req, res, next) => {
 
     try {
 
-        let newComment = commentQueries.addNewComment(commentInfo)
-        
+        let newComment = await commentQueries.addNewComment(commentInfo)
+
         res.status(200).json({
             message: "Success added new comment",
             payload: newComment

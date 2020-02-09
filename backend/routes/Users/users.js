@@ -35,7 +35,7 @@ router.get('/:id', async (req, res, next) => {
     try {
         let user = await userQueries.getUserById(userId)
         res.status(200).json({
-            message: `Success retrieved user by id `,
+            message: `Success retrieved user by id ${userId}`,
             payload: user
         })
 
@@ -61,7 +61,7 @@ router.post('/add', async (req, res, next) => {
             message: "Success added user into users table",
             payload: newUser
         })
-        
+
     } catch (err) {
         console.log(err)
         res.status(404).json({
