@@ -18,7 +18,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      loggedInUser: ''
+      loggedInUserID: 5
     }
   }
 
@@ -37,25 +37,33 @@ class App extends Component {
 
           <Link to="/shows">Shows</Link>
 
+          <Link to="/addShow">Add Show</Link>
+
           <Link to="/about">About</Link>
         </nav>
 
         <div className="body" style={styles}>
           <Switch>
 
-            <Route path="/shows/:id/user/:userId" component={ShowProfile}/>
+            <Route path="/shows/:id/user/:userId"
+              render={(props) => <ShowProfile {...props} loggedInUserID={this.state.loggedInUserID} />}
+            >
+            </Route>
 
-            <Route path="/users/:id/addShow" component={AddShow}/>
+            <Route path="/users/:id" component={UserProfile} />
 
-            <Route path="/users/:id" component={UserProfile}/>
+            <Route exact path="/users" component={Users} />
 
-            <Route exact path="/users" component={Users}/>
+            <Route path="/shows" component={Shows} />
 
-            <Route path="/shows" component={Shows}/>
+            <Route path="/addShow"
+              render={(props) => <AddShow {...props} loggedInUserID={this.state.loggedInUserID} />}
+            >
+            </Route>
 
-            <Route path="/about" component={About}/>
+            <Route path="/about" component={About} />
 
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Home} />
 
           </Switch>
         </div>
