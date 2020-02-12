@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-const AddShow = () => {
+const AddShow = (props) => {
+    const {loggedInUserID} = props
+    console.log(loggedInUserID)
     return (
         <div>
             <h1>New Show Form will go hereee</h1>
