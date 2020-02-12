@@ -10,7 +10,13 @@ const getAllShows = async () => {
 
 /* GET show by id */
 const getShowById = async (show_id) => {
-    const show = await db.any("SELECT * FROM shows WHERE id = $1", [show_id])
+    const selectShowQuery = `
+    SELECT * FROM shows 
+    JOIN genres 
+    ON genres.id = genre_id
+    WHERE shows.id = $1
+    `
+    const show = await db.any(selectShowQuery, [show_id])
     return show;
 }
 
