@@ -36,7 +36,7 @@ router.get('/show/:show_id', async (req, res, next) => {
 router.post('/add', async (req, res, next) => {
 
     let commentInfo = {
-        comment_body: req.body.comment,
+        comment_body: req.body.comment_body,
         user_id: req.body.user_id,
         show_id: req.body.show_id
     }
