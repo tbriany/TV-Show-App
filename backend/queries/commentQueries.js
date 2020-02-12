@@ -3,7 +3,13 @@ const db = require('../database/db')
 
 /* GET all comments for specific show_id */
 const getAllCommentsByShow = async (show_id) => {
-    const comments = await db.any("SELECT * FROM comments WHERE show_id = $1", [show_id])
+    const commentsQuery = `
+    SELECT * FROM comments
+    JOIN users 
+    ON users.id = user_id
+    WHERE show_id = $1
+    `
+    const comments = await db.any(commentsQuery, [show_id])
     return comments;
 }
 
