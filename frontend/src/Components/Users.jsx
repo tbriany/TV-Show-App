@@ -11,25 +11,26 @@ class Users extends Component {
     }
 
     componentDidMount = async () => {
-        const {data: {payload}} = await axios.get('http://localhost:3001/users/all')
+        const { data: { payload } } = await axios.get('http://localhost:3001/users/all')
         // console.log(payload)
         this.setState({
             users: payload
         })
-    }   
+    }
 
     render() {
-        console.log(this.state)
-        const {users} = this.state
+        // console.log(this.state)
+        const { users } = this.state
         const usersArr = users.map(el => {
             return (
                 <UsersDisplay
-                key={el.id}
-                id={el.id}
-                username={el.username}
-                img={el.avatar_url}
+                    key={el.id}
+                    id={el.id}
+                    username={el.username}
+                    img={el.avatar_url}
                 />
-            )})
+            )
+        })
         return (
             <div>
                 <h1>USERS</h1>
