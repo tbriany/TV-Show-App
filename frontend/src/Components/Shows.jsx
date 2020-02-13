@@ -68,10 +68,16 @@ class Shows extends Component {
 
         return (
             <div>
-                <h1>All Shows</h1>
-                <ul>
-                    {showsMapped}
-                </ul>
+            <div className="container">
+                <div className="row">
+                    <div className="col s12 m4 l8">
+                        <h2>All Shows</h2>
+                        <ul>
+                            {showsMapped}
+                        </ul>
+                    </div>
+                </div>
+            </div>
             </div>
         )
     }

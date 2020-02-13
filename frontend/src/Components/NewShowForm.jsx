@@ -86,23 +86,31 @@ class AddShow extends Component {
 
         return (
             <div>
-                <h1>Add Show</h1>
-                <h3>Form</h3>
-                <form onSubmit={handleSubmit}>
+            <div className="container">
+            <div className="row">
+                <h4>Add a new show</h4>
+
+                <div className="input-field col s12">
+                <form onSubmit={handleSubmit} >
                     <label>Show Image Url</label>
-                    <input onChange={handleImageInput} placeholder="url"></input>
+                    <input onChange={handleImageInput} placeholder="Show Image url"></input>
 
                     <label>Show Name</label>
-                    <input onChange={handleShowNameInput} placeholder="Name"></input>
+                    <input onChange={handleShowNameInput} placeholder="Show Name"></input>
 
                     <label>Genre</label>
-                    <select onChange={handleSelectedGenre}>
+                    <select onChange={handleSelectedGenre} className="browser-default" >
                         <option>--- Select a Genre ---</option>
                         {genreArr}
                     </select>
-                    <button>Submit</button>
+                    
+                    <br></br>
+                    <button className="btn waves-effect waves-light">Submit</button>
                 </form>
+                </div>
                 <p>{submitSuccessful}</p>
+                </div>
+                </div>
             </div>
         )
     }

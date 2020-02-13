@@ -76,11 +76,17 @@ class UserProfile extends Component {
             })
             return (
                 <div>
+                    <div className="container">
+                    <div className="row">
+                    <div className="col s12 m4 l8">
                     <img src={pic_url} alt="users avatar"></img>
-                    <h2>{username}</h2>
+                    <h4>{username}</h4>
                     <ul>
                         {showsArr}
                     </ul>
+                    </div>
+                    </div>
+                    </div>
                 </div>
             )
         }

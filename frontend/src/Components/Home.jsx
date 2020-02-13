@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Home = () => {
     return (
@@ -6,7 +6,7 @@ const Home = () => {
             <h2>Welcome to TV Watchlist App</h2>
             <img src="https://beckerblogging.files.wordpress.com/2019/10/gtb609gxx5dewkvpkzba.jpg?w=800"
                 alt="remote and tv"
-                class="responsive-img"
+                className="responsive-img"
             ></img>
         </div>
     )

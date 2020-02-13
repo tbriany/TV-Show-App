@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const CommentsDisplay = (props) => {
     const {comment, username} = props
     return (
         <li>
-            <h4>{username}</h4>
+            <div className="card">
+            <div className="card-content">
+            <h5>{username}</h5>
             <p>{comment}</p>
+            </div>
+            </div>
         </li>
     )
 }

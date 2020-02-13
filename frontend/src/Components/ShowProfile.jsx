@@ -112,9 +112,9 @@ class ShowProfile extends Component {
             )
         })
         return (
-            <div>
+            <div className="container">
                 <div>
-                    <h2>{title} on {username}'s Profile</h2>
+                    <h5>{title} on {username}'s Profile</h5>
                     <img src={show_img} alt="show avatar"></img>
                     <p>{genre}</p>
                     <p>{num_of_comments} comments</p>

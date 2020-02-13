@@ -1,14 +1,32 @@
-.App {
+.App{
+  height: 1000px;
+  width: 100%;
   text-align: center;
+  background-color: #00838f;
+} 
+
+
+.body {
+  margin: 0 auto;
+  background-color: #00838f; 
+}
+
+.container  {
+  display: flex;
+  /* flex-flow: column; */
+  margin: 0 auto;
+  background-color: #e0f7fa ; 
+  box-shadow:10px 10px 10px grey;
+
+}
+
+.container .row {
+  margin: 0 auto;
 }
 
 .nav { 
   color: #fff;
-  background-color: #00897b ;
-}
-
-a {
-  color: black;
+  background-color: #00acc1 ;
 }
 
 

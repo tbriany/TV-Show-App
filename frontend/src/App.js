@@ -24,9 +24,9 @@ class App extends Component {
       <div className="App">
         <nav className="nav">
           <div className="nav-wrapper">
-            <Link className="brand-logo" class="left hide-on-med-and-down" to="/"> TV Watchlist App</Link>
+            <Link className="left hide-on-med-and-down" to="/"> TV Watchlist App</Link>
 
-            <ul class="right hide-on-med-and-down">
+            <ul className="right hide-on-med-and-down">
               <li><Link to="/users">Users</Link></li>
 
               <li><Link to="/shows">Shows</Link></li>

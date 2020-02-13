@@ -33,10 +33,18 @@ class Users extends Component {
         })
         return (
             <div>
+                <div className="container">
+                
+                <div className="row">
+                <div className="col s12 m4 l8">
                 <h2>Users</h2>
+
                 <ul>
                     {usersArr}
                 </ul>
+                </div>
+                </div>
+                </div>
             </div>
         )
     }
