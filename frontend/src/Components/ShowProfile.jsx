@@ -73,7 +73,7 @@ class ShowProfile extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        const { loggedInUserID, showID, newComment} = this.state
+        const { loggedInUserID, showID, newComment } = this.state
 
         let commentInfo = {
             comment_body: newComment,
@@ -99,7 +99,7 @@ class ShowProfile extends Component {
 
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         const { username, title, show_img, genre, num_of_comments, comments } = this.state
         const { handleInput, handleSubmit } = this
         let commentsArr = comments.map(el => {
