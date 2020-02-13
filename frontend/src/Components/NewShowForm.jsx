@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 class AddShow extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             loggedInUserID: props.loggedInUserID,
@@ -47,13 +47,13 @@ class AddShow extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        const {loggedInUserID, img_url, show_name, selected_genre_id} = this.state 
+        const { loggedInUserID, img_url, show_name, selected_genre_id } = this.state
 
         let showInfo = {
             title: show_name,
             img: img_url,
             user_id: loggedInUserID,
-           genre_id: selected_genre_id
+            genre_id: selected_genre_id
         }
 
         try {
@@ -72,37 +72,39 @@ class AddShow extends Component {
 
 
 
-    render(){
-    console.log(this.state)
-    const {genres, submitSuccessful} = this.state 
-    const {handleImageInput, handleShowNameInput, handleSelectedGenre, handleSubmit} = this
+    render() {
+        // console.log(this.state)
+        const { genres, submitSuccessful } = this.state
+        const { handleImageInput, handleShowNameInput, handleSelectedGenre, handleSubmit } = this
 
-    let genreArr = genres.map(el => {return (
-        <option key={el.genre_name} 
-        value={el.id}>{el.genre_name}</option>
-    )})
+        let genreArr = genres.map(el => {
+            return (
+                <option key={el.genre_name}
+                    value={el.id}>{el.genre_name}</option>
+            )
+        })
 
-    return (
-        <div>
-            <h1>Add Show</h1>
-            <h3>Form</h3>
-            <form onSubmit={handleSubmit}>
-                <label>Show Image Url</label>
-                <input onChange={handleImageInput} placeholder="url"></input>
+        return (
+            <div>
+                <h1>Add Show</h1>
+                <h3>Form</h3>
+                <form onSubmit={handleSubmit}>
+                    <label>Show Image Url</label>
+                    <input onChange={handleImageInput} placeholder="url"></input>
 
-                <label>Show Name</label>
-                <input onChange={handleShowNameInput} placeholder="Name"></input>
+                    <label>Show Name</label>
+                    <input onChange={handleShowNameInput} placeholder="Name"></input>
 
-                <label>Genre</label>
-                <select onChange={handleSelectedGenre}>
-                    <option>--- Select a Genre ---</option>
-                    {genreArr}
-                </select>
-                <button>Submit</button>
-            </form>
-            <p>{submitSuccessful}</p>
-        </div>
-    )
+                    <label>Genre</label>
+                    <select onChange={handleSelectedGenre}>
+                        <option>--- Select a Genre ---</option>
+                        {genreArr}
+                    </select>
+                    <button>Submit</button>
+                </form>
+                <p>{submitSuccessful}</p>
+            </div>
+        )
     }
 }
 
