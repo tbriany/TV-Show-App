@@ -58,19 +58,26 @@ router.post('/add', async (req, res, next) => {
         genre_id: req.body.genre_id
     }
 
-    try {
-
-        let newShow = await showQueries.addNewShow(showInfo)
-
-        res.status(200).json({
-            message: "Success added new show",
-            payload: newShow
-        })
-    } catch (err) {
-        console.log(err)
+    if (showInfo.title == '' || showInfo.img == '') {
         res.status(404).json({
             message: "Failure"
         })
+
+    } else {
+        try {
+
+            let newShow = await showQueries.addNewShow(showInfo)
+
+            res.status(200).json({
+                message: "Success added new show",
+                payload: newShow
+            })
+        } catch (err) {
+            console.log(err)
+            res.status(404).json({
+                message: "Failure"
+            })
+        }
     }
 })
 
@@ -111,7 +118,7 @@ router.get('/user/:user_id', async (req, res, next) => {
             message: "Success retrieved all shows for user by id",
             payload: shows
         })
-        
+
     } catch (err) {
         console.log(err)
         res.status(404).json({
