@@ -8,11 +8,8 @@ import Shows from './Components/Shows';
 import UserProfile from './Components/UserProfile'
 import ShowProfile from './Components/ShowProfile'
 import AddShow from './Components/NewShowForm'
+import 'materialize-css/dist/css/materialize.min.css';
 
-const styles = {
-  // width: "40%",
-  border: "black",
-}
 
 class App extends Component {
   constructor() {
@@ -26,23 +23,22 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="nav">
+          <div className="nav-wrapper">
+            <Link className="brand-logo" class="left hide-on-med-and-down" to="/"> TV Watchlist App</Link>
 
-          <Link to="/">
-            <h1>
-              TV Watchlist App
-          </h1>
-          </Link>
+            <ul class="right hide-on-med-and-down">
+              <li><Link to="/users">Users</Link></li>
 
-          <Link to="/users">Users</Link>
+              <li><Link to="/shows">Shows</Link></li>
 
-          <Link to="/shows">Shows</Link>
+              <li><Link to="/addShow">Add Show</Link></li>
 
-          <Link to="/addShow">Add Show</Link>
-
-          <Link to="/about">About</Link>
+              <li><Link to="/about">About</Link></li>
+            </ul>
+          </div>
         </nav>
 
-        <div className="body" style={styles}>
+        <div className="body">
           <Switch>
 
             <Route path="/shows/:id/user/:userId"

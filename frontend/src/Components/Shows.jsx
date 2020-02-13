@@ -60,7 +60,7 @@ class Shows extends Component {
                     key={el.title}
                     title={el.title}
                     img={el.img_url}
-                    genre={el.genre_name}
+                    genre={el.genre}
                     watching={el.watching}
                 />
             )

@@ -33,7 +33,7 @@ class Users extends Component {
         })
         return (
             <div>
-                <h1>USERS</h1>
+                <h2>Users</h2>
                 <ul>
                     {usersArr}
                 </ul>
